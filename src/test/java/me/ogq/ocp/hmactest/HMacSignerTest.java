@@ -11,7 +11,7 @@ public class HMacSignerTest {
   private HMacSigner hMacSigner;
   @Before
   public void setup() {
-    hMacSigner = new HMacSigner("{api-key}", "{secret}");
+    hMacSigner = new HMacSigner("api-key", "secret");
 
   }
 
