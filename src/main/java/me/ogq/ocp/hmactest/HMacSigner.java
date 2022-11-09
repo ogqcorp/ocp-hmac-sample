@@ -74,11 +74,10 @@ public class HMacSigner {
 
   private String generateHash(String payload) {
     try {
-      Mac sha512_HMAC = Mac.getInstance(ALGORITHM);
+      Mac sha256HMAC = Mac.getInstance(ALGORITHM);
       SecretKeySpec keySpec = new SecretKeySpec(secret, ALGORITHM);
-      sha512_HMAC.init(keySpec);
-      byte[] mac_data = sha512_HMAC.
-          doFinal(payload.getBytes(CHARSET));
+      sha256HMAC.init(keySpec);
+      byte[] mac_data = sha256HMAC.doFinal(payload.getBytes(CHARSET));
       return toHexString(mac_data);
     } catch (Exception ex) {
       throw new RuntimeException(ex);
